@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from slots import create_slots, occupy_slot, release_slot, get_free_slots
+from slots import get_remaining_time
 
 # initialize slots
 slots = create_slots()
@@ -17,8 +18,8 @@ def clear_placeholder(event, entry, placeholder):
 def display_slots():
     output.delete("1.0", tk.END)
 
-    output.insert(tk.END, "Slot\tStatus\n")
-    output.insert(tk.END, "----------------------\n")
+    output.insert(tk.END, "Slot\tStatus\tTime\n")
+    output.insert(tk.END, "------------------------------\n")
 
     for slot_id, info in slots.items():
         if info["status"] == "occupied":
@@ -26,7 +27,12 @@ def display_slots():
         else:
             icon = "🟢"
 
-        output.insert(tk.END, f"{slot_id}\t{icon} {info['status']}\n")
+        remaining = get_remaining_time(info)
+
+        output.insert(
+            tk.END,
+            f"{slot_id}\t{icon} {info['status']}\t{remaining}\n"
+        )
 
 def book_slot():
     try:

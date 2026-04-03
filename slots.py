@@ -37,9 +37,6 @@ def release_slot(slots, slot_id):
     slots[slot_id]["hours"] = 0
     slots[slot_id]["start_time"] = None
 
-
-from datetime import datetime
-
 def get_remaining_time(slot):
     if slot["status"] == "free":
         return "-"
