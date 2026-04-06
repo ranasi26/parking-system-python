@@ -43,9 +43,6 @@ def is_slot_suitable(slot_size, vehicle_type):
         return True
     return False
 
-
-from datetime import datetime
-
 from datetime import datetime
 
 def occupy_slot(slots, slot_id, hours, vehicle):

@@ -128,7 +128,7 @@ def exit_slot():
             messagebox.showerror("Error", "Slot already free.")
             return
 
-        # 🔥 GET SLOT DATA BEFORE RELEASING
+        # GET SLOT DATA BEFORE RELEASING
         slot = slots[slot_id]
 
         start_time = slot["start_time"]
