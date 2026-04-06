@@ -2,13 +2,24 @@
 
 def create_slots():
     slots = {}
-    for i in range(1, 11):  # 10 slots
+
+    for i in range(1, 11):
+        if i <= 3:
+            size = "small"   # bikes
+        elif i <= 7:
+            size = "medium"  # cars
+        else:
+            size = "large"   # trucks
+
         slots[i] = {
             "status": "free",
-            "hours": 0
+            "hours": 0,
+            "size": size,
+            "vehicle": None,
+            "start_time": None
         }
-    return slots
 
+    return slots
 
 def display_slots(slots):
     print("\n--- Parking Slots ---")
@@ -23,19 +34,35 @@ def get_free_slots(slots):
             free.append(slot_id)
     return free
 
+def is_slot_suitable(slot_size, vehicle_type):
+    if vehicle_type == "bike" and slot_size == "small":
+        return True
+    if vehicle_type == "car" and slot_size in ["medium", "large"]:
+        return True
+    if vehicle_type == "truck" and slot_size == "large":
+        return True
+    return False
+
 
 from datetime import datetime
 
-def occupy_slot(slots, slot_id, hours):
+from datetime import datetime
+
+def occupy_slot(slots, slot_id, hours, vehicle):
     slots[slot_id]["status"] = "occupied"
     slots[slot_id]["hours"] = hours
+    slots[slot_id]["vehicle"] = vehicle
     slots[slot_id]["start_time"] = datetime.now().timestamp()
 
 
 def release_slot(slots, slot_id):
-    slots[slot_id]["status"] = "free"
-    slots[slot_id]["hours"] = 0
-    slots[slot_id]["start_time"] = None
+    slots[slot_id] = {
+        "status": "free",
+        "hours": 0,
+        "size": slots[slot_id]["size"],
+        "vehicle": None,
+        "start_time": None
+    }
 
 def get_remaining_time(slot):
     if slot["status"] == "free":
