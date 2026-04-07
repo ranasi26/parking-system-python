@@ -27,15 +27,6 @@ def create_slots():
 
     return slots
 
-def display_slots(slots):
-    """
-    Displays all slots in CLI (old version)
-    """
-    print("\n--- Parking Slots ---")
-    for slot_id, info in slots.items():
-        print(f"Slot {slot_id}: {info['status']}")
-
-
 def get_free_slots(slots):
     """
     Returns a list of all available (free) slots

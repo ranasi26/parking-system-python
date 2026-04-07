@@ -55,7 +55,6 @@ def display_slots():
             f"{slot_id}\t{info['size']}\t{icon} {info['status']}\t{vehicle}\t{remaining}\n"
         )
 
-
 # =========================================
 # BOOKING FUNCTION
 # =========================================
