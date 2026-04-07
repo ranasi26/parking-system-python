@@ -12,8 +12,8 @@ RATE = 2                 # RM per hour
 # --------------------------
 def display_slots():
     # Display all slots with status and vehicle info
-    print("\nSlot\tType\tStatus\t     Vehicle\t     Time")
-    print("--------------------------------------------------")
+    print("\nSlot\tType\t Status\t       Vehicle\t        Time")
+    print("------------------------------------------------------------")
     for slot_id, info in slots.items():
         if info["status"] == "occupied":
             icon = "🚗"

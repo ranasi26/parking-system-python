@@ -34,7 +34,7 @@ def display_slots():
     """Display all parking slots with status and vehicle info"""
     output.delete("1.0", tk.END)
 
-    output.insert(tk.END, "Slot\tType\tStatus\t     Vehicle\t     Time\n")
+    output.insert(tk.END, "Slot\tType\t Status\t      Vehicle\t     Time\n")
     output.insert(tk.END, "--------------------------------------------------\n")
 
     for slot_id, info in slots.items():
