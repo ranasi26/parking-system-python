@@ -15,4 +15,4 @@ A simple parking management system with GUI built using Python.
 - Tkinter
 
 ## How to Run
-python gui.py
+python main.py
